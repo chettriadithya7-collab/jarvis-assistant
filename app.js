@@ -36,15 +36,20 @@ function say(text) {
   } else {
     researchLink.classList.add("hidden");
     researchLink.removeAttribute("href");
-  }
+  
 }
-function routeCommand(raw) {
-  const command = raw.trim();
-  const low = command.toLowerCase();
-
-  0= "https://www.youtube.com/";
+ 
+  if (/\b(open youtube|youtube)\b/i.test(command)) {
+    respond("Opening YouTube.", null);
+    window.location.href = "https://www.youtube.com/";
     return;
   }
+ if (/\b(open youtube|youtube)\b/i.test(command)) {
+    respond("Opening YouTube.", null);
+    window.location.href = "https://www.youtube.com/";
+    return;
+  }
+
 
   if (/\b(open google search|open google)\b/i.test(command)) {
     respond("Opening Google Search.", null);
