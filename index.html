@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07111f">
+<title>JARVIS Voice Agent V3</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="orb">J</div><div><strong>JARVIS</strong><small>AI APP BUILDER · V2</small></div></div>
+  <span class="status"><i></i> LOCAL MODE</span>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <p class="eyebrow">YOUR IDEA → A WORKING STARTER APP</p>
+    <h1>What should I build, operator?</h1>
+    <p class="muted">Describe an app in plain language. JARVIS will plan it, generate files, preview the result, run basic checks, and package a ZIP.</p>
+  </section>
+  <section class="panel command-panel">
+    <label for="idea">YOUR COMMAND</label>
+    <textarea id="idea" rows="4" placeholder="Example: Create a badminton tournament app with player registration, match scores, and a rankings table."></textarea>
+    <div class="examples">
+      <button class="chip" data-example="Create a simple to-do list app with add, complete, and delete tasks.">To-do app</button>
+      <button class="chip" data-example="Create a calculator with a clean dark design.">Calculator</button>
+      <button class="chip" data-example="Create a personal portfolio website with about, skills, and contact sections.">Portfolio site</button>
+      <button class="chip" data-example="Create a badminton tournament dashboard with player names, scores, and rankings.">Badminton app</button>
+    </div>
+    <div class="actions">
+      <button id="voice" class="secondary">🎙️ Speak to JARVIS</button>
+      <button id="build" class="primary">⚡ Build my app</button>
+      <button id="clear" class="secondary">Clear</button>
+    </div>
+    <p id="voiceStatus" class="fine" aria-live="polite">Voice works only in browsers that support speech recognition. Tap the button before speaking.</p>
+    <div class="actions quick-actions">
+      <button class="chip" data-mode="research">Research a topic</button>
+      <button class="chip" data-mode="code">Explain open-source code</button>
+      <button class="chip" data-mode="cyber">Cybersecurity learning</button>
+      <button class="chip" data-mode="trading">Trading education</button>
+    </div>
+    <section id="assistantReply" class="assistant-reply hidden" aria-live="polite">
+      <div class="section-head"><strong>JARVIS response</strong><button id="speakReply" class="secondary smallbtn">🔊 Read aloud</button></div>
+      <p id="replyText"></p>
+      <a id="researchLink" class="hidden" target="_blank" rel="noopener noreferrer">Open research search ↗</a>
+    </section>
+    <p class="fine">Privacy: this starter runs locally in your browser. Your prompt is not sent to a server.</p>
+  </section>
+
+  <section id="workspace" class="workspace hidden">
+    <div class="section-head"><div><p class="eyebrow">BUILD REPORT</p><h2 id="projectTitle">Your project</h2></div><span id="buildStatus" class="pill">READY</span></div>
+    <div class="panel">
+      <h3>1. Plan</h3>
+      <ol id="plan" class="plan"></ol>
+    </div>
+    <div class="panel">
+      <div class="section-head"><h3>2. Generated files</h3><span id="fileCount" class="pill">0 files</span></div>
+      <div id="fileList" class="file-list"></div>
+      <pre id="codeView" class="code-view">Select a file to inspect its contents.</pre>
+    </div>
+    <div class="panel">
+      <div class="section-head"><h3>3. Live preview</h3><span class="pill">SANDBOXED</span></div>
+      <p class="muted small">Preview is isolated from this builder. If a generated app asks for sensitive permissions, don't grant them without understanding why.</p>
+      <iframe id="preview" title="Generated app preview" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe>
+    </div>
+    <div class="panel">
+      <div class="section-head"><h3>4. Basic checks</h3><button id="rerun" class="secondary smallbtn">Run checks again</button></div>
+      <ul id="tests" class="test-list"></ul>
+      <p class="fine">These are basic structural checks, not a guarantee that a complex app is bug-free.</p>
+    </div>
+    <div class="download-row">
+      <div><strong>Ready to take your project?</strong><p class="muted small">Download HTML, CSS, JavaScript, README, and test notes as a ZIP.</p></div>
+      <button id="download" class="primary">⬇ Download project ZIP</button>
+    </div>
+  </section>
+  <section class="panel limits">
+    <h3>Voice-first prototype capabilities</h3>
+    <ul>
+      <li>Tap-to-talk voice input and spoken responses when your browser supports them.</li>
+      <li>One interface for app generation, research-search handoff, open-source code learning, safe cybersecurity learning, and trading education.</li>
+      <li>Research is opened as a search link for you to review; this prototype does not autonomously browse or execute external actions.</li>
+    </ul>
+    <h3>What this version can do</h3>
+    <ul>
+      <li>Generate working starter apps for common requests such as to-do lists, calculators, portfolios, quizzes, and simple trackers.</li>
+      <li>Create a general-purpose web-app scaffold for ideas outside those templates.</li>
+      <li>Preview and export a self-contained project without an API key.</li>
+    </ul>
+    <h3>What it cannot do yet</h3>
+    <ul>
+      <li>It is not a full reasoning AI or an autonomous computer-control agent.</li>
+      <li>Complex backend, login, cloud database, app-store publishing, and Android APK builds need additional services or tools.</li>
+      <li>Do not put passwords, API keys, or private data into generated code.</li>
+    </ul>
+  </section>
+  <footer>JARVIS Voice Agent V3 · Local-first prototype · Review generated code before publishing.</footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
