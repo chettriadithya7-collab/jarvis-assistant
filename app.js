@@ -8,10 +8,12 @@ const replyText = $("replyText");
 const researchLink = $("researchLink");
 let recognition = null;
 function say(text) {
-  if (!("speechSynthesis" in window)) {
-    voiceStatus.textContent = "Text-to-speech is not supported in this browser. Read the reply on screen.";
-    return;
-  }
+  if (/\b(open youtube|youtube)\b/i.test(command)) {
+  respond("Opening YouTube.", null);
+  window.location.href = "https://www.youtube.com/";
+  return;
+}
+  
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = "en-IN";
