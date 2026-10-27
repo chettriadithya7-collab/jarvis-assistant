@@ -34,9 +34,7 @@ function routeCommand(raw) {
   const command = raw.trim();
   const low = command.toLowerCase();
 
-  if (/\bopen youtube\b/i.test(command)) {
-    respond("Opening YouTube.", null);
-    window.location.href = "https://www.youtube.com/";
+  0= "https://www.youtube.com/";
     return;
   }
 
@@ -46,10 +44,11 @@ function routeCommand(raw) {
     return;
   }
 
-  if (/\b(open google maps|open maps)\b/i.test(command)) {
+    if (/\b(open google maps|open maps)\b/i.test(command)) {
     respond("Opening Google Maps.", null);
     window.location.href = "https://maps.google.com/";
     return;
+ 
   }
 
   if (/\b(open spotify|open music)\b/i.test(command)) {
