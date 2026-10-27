@@ -7,21 +7,26 @@ const assistantReply = $("assistantReply");
 const replyText = $("replyText");
 const researchLink = $("researchLink");
 let recognition = null;
+
 function say(text) {
   if (!("speechSynthesis" in window)) {
-  if (/\b(open youtube|youtube)\b/i.test(command)) {
-  respond("Opening YouTube.", null);
-  window.location.href = "https://www.youtube.com/";
-  return;
-}
+    voiceStatus.textContent = "Text-to-speech is not supported in this browser.";
+    return;
+  }
   
+function say(text) {
+  if (!("speechSynthesis" in window)) {
+    voiceStatus.textContent = "Text-to-speech is not supported in this browser.";
+    return;
+  }
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = "en-IN";
   utterance.rate = 1;
   window.speechSynthesis.speak(utterance);
 }
-function respond(text, searchQuery) {
+
+ function respond(text, searchQuery) {
   assistantReply.classList.remove("hidden");
   replyText.textContent = text;
   if (searchQuery) {
