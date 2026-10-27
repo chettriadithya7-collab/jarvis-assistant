@@ -8,6 +8,7 @@ const replyText = $("replyText");
 const researchLink = $("researchLink");
 let recognition = null;
 function say(text) {
+  if (!("speechSynthesis" in window)) {
   if (/\b(open youtube|youtube)\b/i.test(command)) {
   respond("Opening YouTube.", null);
   window.location.href = "https://www.youtube.com/";
