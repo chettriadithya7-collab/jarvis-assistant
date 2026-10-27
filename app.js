@@ -33,6 +33,13 @@ function respond(text, searchQuery) {
 function routeCommand(raw) {
   const command = raw.trim();
   const low = command.toLowerCase();
+
+  if (/\bopen youtube\b/i.test(command)) {
+    respond("Opening YouTube.", null);
+    window.location.href = "https://www.youtube.com/";
+    return;
+  }
+
   $("idea").value = command;
   if (/\b(build|make|create|develop|generate|design)\b/.test(low) &&
       /\b(app|website|site|tool|game|calculator|portfolio|tracker|quiz|todo|to-do|project)\b/.test(low)) {
