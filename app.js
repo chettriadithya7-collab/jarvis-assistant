@@ -40,6 +40,59 @@ function routeCommand(raw) {
     return;
   }
 
+  if (/\b(open google search|open google)\b/i.test(command)) {
+    respond("Opening Google Search.", null);
+    window.location.href = "https://www.google.com/";
+    return;
+  }
+
+  if (/\b(open google maps|open maps)\b/i.test(command)) {
+    respond("Opening Google Maps.", null);
+    window.location.href = "https://maps.google.com/";
+    return;
+  }
+
+  if (/\b(open spotify|open music)\b/i.test(command)) {
+    respond("Opening Spotify.", null);
+    window.location.href = "https://open.spotify.com/";
+    return;
+  }
+
+  if (/\b(open whatsapp)\b/i.test(command)) {
+    respond("Opening WhatsApp.", null);
+    window.location.href = "https://www.whatsapp.com/";
+    return;
+  }
+
+  if (/\b(open gmail)\b/i.test(command)) {
+    respond("Opening Gmail.", null);
+    window.location.href = "https://mail.google.com/";
+    return;
+  }
+
+  if (/\b(open instagram)\b/i.test(command)) {
+    respond("Opening Instagram.", null);
+    window.location.href = "https://www.instagram.com/";
+    return;
+  }
+
+  if (/\b(open messages)\b/i.test(command)) {
+    respond("Trying to open your messaging app.", null);
+    window.location.href = "sms:";
+    return;
+  }
+
+  if (/\b(open phone)\b/i.test(command)) {
+    respond("Use your phone's Phone app to make calls.", null);
+    return;
+  }
+
+  if (/\b(open camera|open settings|open chrome)\b/i.test(command)) {
+    respond("This website cannot reliably launch that system app directly. Please open it from your phone's home screen.", null);
+    return;
+  }
+
+
   $("idea").value = command;
   if (/\b(build|make|create|develop|generate|design)\b/.test(low) &&
       /\b(app|website|site|tool|game|calculator|portfolio|tracker|quiz|todo|to-do|project)\b/.test(low)) {
